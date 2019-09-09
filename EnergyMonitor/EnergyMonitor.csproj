@@ -8,6 +8,9 @@
   <ItemGroup>
     <Content Include="bin\Debug\netcoreapp2.0\publish\EnergyMonitor.deps.json" />
     <Content Include="bin\Debug\netcoreapp2.0\publish\EnergyMonitor.runtimeconfig.json" />
+    <Content Include="bin\Release\netcoreapp2.0\EnergyMonitor.deps.json" />
+    <Content Include="bin\Release\netcoreapp2.0\EnergyMonitor.runtimeconfig.dev.json" />
+    <Content Include="bin\Release\netcoreapp2.0\EnergyMonitor.runtimeconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +35,8 @@
     <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncoutlet.cpython-37.pyc" />
     <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncswitch.cpython-37.pyc" />
     <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\__init__.cpython-37.pyc" />
+    <None Include="bin\Release\netcoreapp2.0\EnergyMonitor.dll" />
+    <None Include="bin\Release\netcoreapp2.0\EnergyMonitor.pdb" />
   </ItemGroup>
 
   <ItemGroup>

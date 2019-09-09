@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp2.0\publish\EnergyMonitor.deps.json" />
+    <Content Include="bin\Debug\netcoreapp2.0\publish\EnergyMonitor.runtimeconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.0\publish\EnergyMonitor.dll" />
+    <None Include="bin\Debug\netcoreapp2.0\publish\EnergyMonitor.pdb" />
+    <None Include="bin\Debug\netcoreapp2.0\publish\Newtonsoft.Json.dll" />
+    <None Include="bin\Debug\netcoreapp2.0\publish\System.Json.dll" />
     <None Include="bin\Debug\netcoreapp2.0\python\energyMonitor.py" />
     <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\helpers.py" />
     <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesync.py" />

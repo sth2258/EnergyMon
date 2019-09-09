@@ -5,4 +5,29 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp2.0\python\energyMonitor.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\helpers.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesync.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesyncbasedevice.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesyncbulb.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesyncfan.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesyncoutlet.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\vesyncswitch.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__init__.py" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\helpers.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesync.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncbasedevice.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncbulb.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncfan.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncoutlet.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\vesyncswitch.cpython-37.pyc" />
+    <None Include="bin\Debug\netcoreapp2.0\python\pyvesync\__pycache__\__init__.cpython-37.pyc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Json" Version="4.5.0" />
+  </ItemGroup>
+
 </Project>

@@ -47,10 +47,10 @@ for device in manager.outlets:
         f.write(str(currentValue))
         f.close()
     
-    if(previousValue<POWERTHRESHOLD and currentValue>POWERTHRESHOLD):
+    #if(previousValue<POWERTHRESHOLD and currentValue>POWERTHRESHOLD):
         #print("Machine appears to have started")
-    elif(previousValue>POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
+    #elif(previousValue>POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
         #print("Machine appears to have stopped")
-    elif(previousValue<POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
+    #elif(previousValue<POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
         #print("Machine appears idle")
         

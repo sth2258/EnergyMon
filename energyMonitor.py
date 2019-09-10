@@ -4,6 +4,7 @@ import json
 import sys
 import configparser
 import os.path
+import datetime
 sys.path.insert(0, '..\pyvesync\src')
 
 from pyvesync import VeSync
@@ -43,7 +44,7 @@ for device in manager.outlets:
         previousValue = float(previousValue)
         f.close()
         f = open(ret['Device Name']+".txt", "w")
-        print(ret['Device Name']+": Current = "+ str(currentValue) + ", Previous = "+str(previousValue))
+        print(str(datetime.datetime.now())+" " + ret['Device Name']+": Current = "+ str(currentValue) + ", Previous = "+str(previousValue))
         f.write(str(currentValue))
         f.close()
     

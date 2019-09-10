@@ -5,17 +5,18 @@ import sys
 import configparser
 import os.path
 import datetime
-sys.path.insert(0, '..\pyvesync\src')
-
-from pyvesync import VeSync
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 
 DEFAULT_TZ = config['DEFAULT']['DEFAULT_TZ']
+VESYNCAPIPATH = config['DEFAULT']['VESYNCAPIPATH']
 POWERTHRESHOLD = float(config['DEFAULT']['PowerThreshold'])
 UserName = config['DEFAULT']['UserName']
 Password = config['DEFAULT']['Password']
+
+sys.path.insert(0, VESYNCAPIPATH)
+from pyvesync import VeSync
 
 
 manager = VeSync(UserName, Password, time_zone=DEFAULT_TZ)

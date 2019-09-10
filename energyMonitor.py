@@ -5,6 +5,7 @@ import sys
 import configparser
 import os.path
 import datetime
+import boto3
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -14,10 +15,10 @@ VESYNCAPIPATH = config['DEFAULT']['VESYNCAPIPATH']
 POWERTHRESHOLD = float(config['DEFAULT']['PowerThreshold'])
 UserName = config['DEFAULT']['UserName']
 Password = config['DEFAULT']['Password']
+client = boto3.client("sns",aws_access_key_id=config['DEFAULT']['aws_access_key_id'],aws_secret_access_key=config['DEFAULT']['aws_secret_access_key'],region_name=config['DEFAULT']['region_name'])
 
 sys.path.insert(0, VESYNCAPIPATH)
 from pyvesync import VeSync
-
 
 manager = VeSync(UserName, Password, time_zone=DEFAULT_TZ)
 manager.login()
@@ -49,10 +50,14 @@ for device in manager.outlets:
         f.write(str(currentValue))
         f.close()
     
-    #if(previousValue<POWERTHRESHOLD and currentValue>POWERTHRESHOLD):
-        #print("Machine appears to have started")
-    #elif(previousValue>POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
-        #print("Machine appears to have stopped")
-    #elif(previousValue<POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
-        #print("Machine appears idle")
+    if(previousValue<POWERTHRESHOLD and currentValue>POWERTHRESHOLD):
+        print("Machine appears to have started")
+        client.publish(PhoneNumber=config['DEFAULT']['PhoneNumber1'],Message=(config['DEFAULT']['StartMessage']).replace("plug",ret['Device Name']))
+        client.publish(PhoneNumber=config['DEFAULT']['PhoneNumber2'],Message=(config['DEFAULT']['StartMessage']).replace("plug",ret['Device Name']))
+    elif(previousValue>POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
+        print("Machine appears to have stopped")
+        client.publish(PhoneNumber=config['DEFAULT']['PhoneNumber1'],Message=(config['DEFAULT']['CompleteMessage']).replace("plug",ret['Device Name']))
+        client.publish(PhoneNumber=config['DEFAULT']['PhoneNumber2'],Message=(config['DEFAULT']['CompleteMessage']).replace("plug",ret['Device Name']))
+    elif(previousValue<POWERTHRESHOLD and currentValue<POWERTHRESHOLD):
+        print("Machine appears idle")
         

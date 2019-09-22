@@ -30,7 +30,7 @@ manager.update()
 # Get energy usage data
 manager.update_energy()
 
-client = InfluxDBClient('192.168.1.235', 8086, '', '', 'EnergyMonitor')
+client = InfluxDBClient('127.0.0.1', 8086, '', '', 'EnergyMonitor')
 
 # Display outlet device information
 for device in manager.outlets:

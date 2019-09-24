@@ -39,24 +39,24 @@ for device in manager.outlets:
     ret = device.displayJSON()
 
     currentValue = float(ret['Power'])
-    currentTime = datetime.now().timestamp()
+    
     json_body = [
         {
             "measurement": "Wattage",
             "tags": {
                 "device": ret['Device Name']
             },
-            "time": datetime.now(),
+            "time": datetime.utcnow(),
             "fields": {
                 "value": currentValue
             }
         }
     ]
     client.write_points(json_body)
-    print(str(datetime.now())+" " + ret['Device Name']+": Current = "+ str(currentValue))
+    print(str(datetime.utcnow())+" " + ret['Device Name']+": Current = "+ str(currentValue))
 
     #Get the older values from the DB (if they even exist)
-    PreviousQueryDates = (datetime.now() - timedelta(minutes=6))
+    PreviousQueryDates = (datetime.utcnow() - timedelta(minutes=6))
     q1 = 'SELECT "value" FROM "EnergyMonitor"."autogen"."Wattage" WHERE time > ' + "'"+ str(PreviousQueryDates)+"' and device='"+ret['Device Name']+"'"
     #Test Values
     #PreviousQueryDates = (datetime(2019,9,23,15,8,6) - timedelta(minutes=6))
